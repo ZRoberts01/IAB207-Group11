@@ -24,7 +24,6 @@ window.onload = function() {
 
     document.forms[0].onsubmit = function(e) {
       e.preventDefault();
-      addComment(obj.Comment)
-      Commented = true;
+      addComment("14/6/22: " + obj.Comment)
     }
   }
