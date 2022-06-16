@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block content %}
+<main>
+    <section>
+        <!-- Image is sourced from Bungie Destiny 2 game galley images. https://www.bungie.net/7/en/destiny/newlight (2022) -->
+        <img class="details-page" src="../img/destiny2raid.png" alt="Destiny 2 Raid Image">
+        <h2>
+            Destiny 2 Raid Party
+        </h2>
+        <h4> Event Status:</h4>
+        <p class="status-active">
+            <i>Available, only 2 left</i>
+        </p>
+        <h4> Event Details: </h4>
+        <p class="details">
+            Looking for four/five people to help us complete a Destiny 2 Raid. The event is free, we just want
+            more numbers to help complete the raid, make sure you have plenty of free time to complete the raid.
+        </p>
+        <h4> Date and Time: </h4>
+        <p class="details">
+            14/5/2022 <br>
+            4:00pm AEST
+        </p>
+
+        <p class="details">
+            <i><b>Organised by</b> WitcherHunter24</i>
+        </p>
+    </section>
+
+    <section class="modal-event">
+        <button type="button" class="btn btn-info btn-primary" data-toggle="modal"
+            data-target="#eventModal">Tickets</button>
+
+        <div class="modal" id="eventModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Book Tickets</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <p> Select the details below to book your tickets </p>
+                        <div id="name">
+                            <label for="creatorName">Name</label>
+                            <input type="text" id="creatorName" class="form-control" placeholder="Name" />
+                        </div>
+                    </div>
+                    <div id="email">
+                        <label for="InputEmail">Email address</label>
+                        <input type="email" class="form-control" id="InputEmail" placeholder="Enter email">
+                    </div>
+
+                    <div class="form-group" id="tickets">
+                        <label for="FormControlSelect">Number of Tickets</label>
+                        <select class="form-control" id="FormControlSelect">
+                            <option>1</option>
+                            <option>2</option>
+                        </select>
+                    </div>
+                    <div id="paymentchoice">
+                        <label class="radio-inline"><input type="radio" name="optradio" checked>Visa/Mastercard</label>
+                        <label class="radio-inline"><input type="radio" name="optradio">Paypal</label>
+                    </div>
+                    <div id="payment">
+                        <label for="paymentnumber">Card Number</label>
+                        <input type="paymentno" class="form-control" id="paymentnumber"
+                            placeholder="0000-0000-0000-0000">
+                    </div>
+                    <div id="ccv">
+                        <label for="ccvno">CVS</label>
+                        <input type="ccvnumber" class="form-control" id="ccvno" placeholder="000">
+                    </div>
+
+
+
+                    <div id="expire">
+                        <label for="expiry">Expiry Date</label>
+                        <input type="expiryno" class="form-control" id="expiry" placeholder="MM/YY">
+                    </div>
+
+
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Book</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                </div>
+
+            </div>
+        </div>
+        </div>
+    </section>
+
+
+    <section class="comments">
+        <h3>Event Comments</h3>
+
+        <div id="newcomment">
+            <label for="comment">Login to create comment:</label>
+            <form class="hidden">
+                <input class="form-control" type="textarea" rows="5" name="Comment" placeholder="Enter your comment"
+                    required />
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+
+        <div id="othercomments">
+            <label for="oldcomment">Starfire165:</label>
+            <input class="form-control" type="text"
+                placeholder="Great idea, hopefully no ones wifi dies in the middle of it :)" readonly>
+        </div>
+
+        <div id="othercomments">
+            <label for="oldcomment">AussieGames:</label>
+            <input class="form-control" type="text"
+                placeholder="This is so cool, good way to find other people to join in! " readonly>
+        </div>
+    </section>
+
+
+    <!-- Bootstrap CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+    {% endblock %}
