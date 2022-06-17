@@ -12,7 +12,7 @@ def create_app():
     app.secret_key='somerandomvalue'
 
     #database
-    app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///users.sqlite'
+    app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///gamingevents.sqlite'
 
 
     #start database
@@ -37,6 +37,6 @@ def create_app():
 
 
 @app.errorhandler(404) 
-# inbuilt function which takes error as parameter 
+# inbuilt function which takes error as parameter
 def not_found(e): 
   return render_template("404.html")
