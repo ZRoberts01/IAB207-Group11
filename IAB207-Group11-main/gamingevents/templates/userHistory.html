@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block content %}
+    <!-- Main -->
+    <main>
+
+        <section>
+            <h2> User Profile</h2>
+
+            <h4>Username:</h4>
+            <p class="user-info">TopGamerBear</p>
+
+            <h4>Name:</h4>
+            <p class="user-info">John Doe</p>
+
+            <h4>Email:</h4>
+            <p class="user-info">topgamerbear@gmail.com</p>
+
+            <h4>Phone number:</h4>
+            <p class="user-info">0400-000-000</p>
+
+            <h4>Card Details:</h4>
+            <p class="user-info">
+                John Doe <br>
+                ****/****/****/1011     ccv: ***
+            </p>
+
+        </section>
+
+        <section class="booked-event">
+            <h2> Booking History: </h2>
+
+            <div class="container-user">
+                <div class="row">
+                  
+                  <div class="col-sm">
+
+                    <!-- Image is sourced from Bungie Destiny 2 game galley images. https://www.bungie.net/7/en/destiny/newlight (2022) -->
+                    <img class="user-img" src="../static/img/destiny2raid.png" alt="Destiny 2 Website Image">
+        
+                    <h3> Destiny 2 Raid Party </h3>
+                    <p class="status-active">
+                        <i> 1x tickets </i>
+                    </p>
+
+                    <p class="user-info">
+                        <b>Booking Order ID:</b> <br>
+                        6939234290219 <br>
+                        <b>Date Booked:</b> <br>
+                        2/5/2022
+                    </p>
+
+                    <p>
+                        Looking for raid party members to join our raid and have fun!
+                    </p>
+                    <p>
+                        <b>Date:</b> <br>
+                        14/5/2022 <br>
+                        <b>Time:</b> <br>
+                        4:00pm AEST
+                    </p>
+
+                    <a class="btn btn-primary" href="{{ url_for('main.eventDetails') }}" role="button"> Details </a>
+                  </div>
+                </div>
+            </div>
+
+        </section>
+        <!-- Bootstrap CSS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    </main>
+    {% endblock %}
