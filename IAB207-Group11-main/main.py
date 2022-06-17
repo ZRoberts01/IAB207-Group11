@@ -1,4 +1,3 @@
-from flask import Flask
 from gamingevents import create_app
 
 if __name__=='__main__':
