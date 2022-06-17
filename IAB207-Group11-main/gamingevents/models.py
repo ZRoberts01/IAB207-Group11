@@ -10,3 +10,17 @@ class User(db.Model, UserMixin):
     password_hash = db.Column(db.String(255), nullable=False)
     phone_number = db.Column(db.String(100), index=True, unique=True, nullable=False)
     address = db.Column(db.String(100), index=True, unique=True, nullable=False)
+    
+class Events(db.Model):
+    __tablename__='events'
+    creatorName = db.Column(db.String(100), index=True, unique=True, nullable=False)
+    emailid = db.Column(db.String(100), index=True, nullable=False)
+    eventName = db.Column(db.String(100), index=True, nullable=False)
+    category = db.Column(db.String(100), index=True, nullable=False)
+    description = db.Column(db.Varchar(250), index=True, nullable=False)
+    date = db.Column(db.String(100), index=True, nullable=False)
+    time = db.Column(db.String(100), index=True, nullable=False)
+    location = db.Column(db.String(100), index=True, nullable=False)
+    ticketlimit = db.Column(db.Integer, index=True, nullable=False)
+    price = db.Column(db.Float, index=True, nullable=False)
+    t_d = db.Column(db.Boolean, index=True, nullable=False)
