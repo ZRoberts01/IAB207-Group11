@@ -63,7 +63,14 @@ footer{
 }
 
 .details-page{
-    width: 100%;
+    width: 60%;
+    float: right;
+    padding-top: 2%;
+    padding-right: 2%;
+}
+
+.detailstxt{
+    float: inline-start;
 }
 
 .details{
