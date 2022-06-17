@@ -6,14 +6,11 @@
     Browse the gaming events below or even create your own!
   </h2>
   </section>
-  <div class="dropdown">
-    <button class="dropbtn">Catergories</button>
-    <div class="dropdown-content">
-      <a href="{{ url_for('main.index') }}">All</a>
-      <a href="destinycat.html">Destiny</a>
-      <a href="leaguecat.html">LOL</a>
-    </div>
-  </div>
+  
+  <section>
+    <a class="btn btn-primary" href="{{ url_for('main.category') }}" role="button"> Categories </a>
+  </section>
+
   <section>
     <div class="container">
       <div class="row">
