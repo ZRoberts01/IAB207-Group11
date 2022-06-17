@@ -2,21 +2,23 @@
 {% import "bootstrap/wtf.html" as wtf %}
 {% block content %}
     <main>
-        <section>
-            <h2>
-                Create your own event here:
-            </h2>
-            <p class="creation-details">
-                On this page you can create your own sporting event. Please ensure that you are serious
-                about following through with the event you are to create.
-                If the event is to have paid tickets in the event of cancellation refunds will be given to the
-                participants. Other warnings and stuff. 
-            </p>
-   <!-- Create Event Form -->
-        <div class="col-md-6 ml-5">
-            {{wtf.quick_form(form)}}
+        <div class ='container'>
+                <h2>
+                    Create your own event here:
+                </h2>
+                <p class="creation-details">
+                    On this page you can create your own sporting event. Please ensure that you are serious
+                    about following through with the event you are to create.
+                    If the event is to have paid tickets in the event of cancellation refunds will be given to the
+                    participants. Other warnings and stuff. 
+                </p>
+                <!-- Create Event Form -->
+                <div class="col-md-6">
+                    {{wtf.quick_form(form)}}
+                </div>
         </div>
-        </section>
+    
+
      
 
         <!-- Bootstrap CSS -->
