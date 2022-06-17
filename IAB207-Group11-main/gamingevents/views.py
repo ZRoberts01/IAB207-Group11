@@ -32,7 +32,10 @@ def eventCreation():
 @mainbp.route('/details')
 def eventDetails():
     return render_template('eventDetails.html')
-
+#Categories Page
+@mainbp.route('/categories')
+def categories():
+    return render_template(category.html)
 
 
 #User History Page
