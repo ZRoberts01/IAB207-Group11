@@ -3,7 +3,7 @@ from datetime import datetime
 from flask_login import UserMixin
 
 class User(db.Model, UserMixin):
-    __tablename__='accounts'
+    __tablename__='users'
     id = db.Column(db.Integer, primary_key=True)
     user_name = db.Column(db.String(100), index=True, unique=True, nullable=False)
     first_name = db.Column(db.String(100), index=True, nullable = False)
@@ -12,25 +12,39 @@ class User(db.Model, UserMixin):
     password_hash = db.Column(db.String(255), nullable=False)
     phone_number = db.Column(db.String(100), index=True, unique=True, nullable=False)
     address = db.Column(db.String(100), index=True, unique=True, nullable=False)
+    comments = db.relationship('Comment', backref='user')
     
 class Events(db.Model):
     __tablename__='events'
-    creatorName = db.Column(db.String(100), primary_key=True, unique=True)
-    emailid = db.Column(db.String(100), index=True, nullable=False)
-    eventName = db.Column(db.String(100), index=True, nullable=False)
-    category = db.Column(db.String(100), index=True, nullable=False)
-    description = db.Column(db.VARCHAR, index=True, nullable=False)
-    date = db.Column(db.String(100), index=True, nullable=False)
-    time = db.Column(db.String(100), index=True, nullable=False)
-    location = db.Column(db.String(100), index=True, nullable=False)
-    #Amount of tickets to buy
+    id = db.Column(db.Integer, primary_key=True)
+    eventName = db.Column(db.String(100))
+    description = db.Column(db.String(250))
+    image = db.Column(db.String(400))
+    category = db.Column(db.String(100))
+    date = db.Column(db.String(100))
+    time = db.Column(db.String(100))
+    location = db.Column(db.String(100))
     ticketlimit = db.Column(db.Integer, index=True, nullable=False)
     price = db.Column(db.Float, index=True, nullable=False)
     t_d = db.Column(db.Boolean, index=True, nullable=False)
-    
+    comments = db.relationship('Comment', backref='event')
+    def __repr__(self):
+            return "<Name: {}>".format(self.name)
+
 class Comment(db.Model):
-    __tablename__='Comment'
+    __tablename__='comments'
     id = db.Column(db.Integer, primary_key=True)
-    text = db.Column(db.String(140), index=True, nullable=False)
-    user = db.Column(db.String(32), index=True, nullable=False)
-    timestamp = db.Column(db.DateTime(), default=datetime.utcnow, index=True, nullable=False)
+    text = db.Column(db.String(400))
+    timestamp = db.Column(db.DateTime(), default=datetime.now())
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    event_id = db.Column(db.Integer, db.ForeignKey('events.id'))
+    def __repr__(self):
+        return "<Comment: {}>".format(self.text)\
+
+class Booking(db.Model):
+    __tablename__ = 'booking' 
+    id = db.Column(db.Integer, primary_key = True)
+    eventName = db.Column(db.String(100))
+    price = db.Column(db.Float(), index=True, nullable=False)
+    date = db.Column(db.String(100))
+    time = db.Column(db.String(100))
