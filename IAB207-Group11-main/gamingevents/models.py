@@ -13,8 +13,9 @@ class User(db.Model, UserMixin):
     phone_number = db.Column(db.String(100), index=True, unique=True, nullable=False)
     address = db.Column(db.String(100), index=True, unique=True, nullable=False)
     comments = db.relationship('Comment', backref='user')
+    creator = db.relationship('Event', backref='creator_id')
     
-class Events(db.Model):
+class Event(db.Model):
     __tablename__='events'
     id = db.Column(db.Integer, primary_key=True)
     eventName = db.Column(db.String(100))
@@ -27,6 +28,7 @@ class Events(db.Model):
     ticketlimit = db.Column(db.Integer, index=True, nullable=False)
     price = db.Column(db.Float, index=True, nullable=False)
     t_d = db.Column(db.Boolean, index=True, nullable=False)
+    creator_id = db.Column(db.String, db.ForeignKey('users.id'))
     comments = db.relationship('Comment', backref='event')
     def __repr__(self):
             return "<Name: {}>".format(self.name)
