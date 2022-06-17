@@ -5,7 +5,9 @@ from flask_login import UserMixin
 class User(db.Model, UserMixin):
     __tablename__='accounts'
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100), index=True, unique=True, nullable=False)
+    user_name = db.Column(db.String(100), index=True, unique=True, nullable=False)
+    first_name = db.Column(db.String(100), index=True, nullable = False)
+    last_name = db.Column(db.String(100), index=True, nullable = False)
     emailid = db.Column(db.String(100), index=True, nullable=False)
     password_hash = db.Column(db.String(255), nullable=False)
     phone_number = db.Column(db.String(100), index=True, unique=True, nullable=False)
@@ -25,3 +27,10 @@ class Events(db.Model):
     ticketlimit = db.Column(db.Integer, index=True, nullable=False)
     price = db.Column(db.Float, index=True, nullable=False)
     t_d = db.Column(db.Boolean, index=True, nullable=False)
+    
+class Comment(db.Model):
+    __tablename__='Comment'
+    id = db.Column(db.Integer, primary_key=True)
+    text = db.Column(db.String(140), index=True, nullable=False)
+    user = db.Column(db.String(32), index=True, nullable=False)
+    timestamp = db.Column(db.DateTime(), default=datetime.utcnow, index=True, nullable=False)
