@@ -33,9 +33,9 @@ def eventCreation():
 def eventDetails():
     return render_template('eventDetails.html')
 #Categories Page
-@mainbp.route('/categories')
-def categories():
-    return render_template(category.html)
+@mainbp.route('/category')
+def category():
+    return render_template('category.html')
 
 
 #User History Page
