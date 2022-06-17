@@ -25,7 +25,7 @@ def eventCreation():
     form = EventForm()
     if form.validate_on_submit():
         print('Event creation Successful')
-        return redirect(url_for('eventcreation'))
+        return redirect(url_for('main.eventCreation'))
     return render_template('eventCreation.html', form=form)
 
 #Event Details Page
