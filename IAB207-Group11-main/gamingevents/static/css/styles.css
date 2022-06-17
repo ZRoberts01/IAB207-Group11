@@ -28,6 +28,12 @@
     background-color: #ffc966;
 }
 
+h1{
+    text-align: left;
+    padding-top: 2%;
+    padding-left: 3%;
+}
+
 h2{
     text-align: left;
     font-size: x-large;
@@ -139,6 +145,10 @@ footer{
 .behind-login{
     padding-left: 3%;
     padding-bottom: 3%;
+}
+
+.col-md-6{
+    padding-left: 3%;
 }
 
 #Check{
