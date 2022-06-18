@@ -4,23 +4,26 @@
     <!-- Main -->
     <main>
 
-        {% if current_user.is_authenticated %}
+        
         <section>
             <h2> User Profile</h2>
+        
+        {% if current_user.is_authenticated %}
 
             <h4>Username:</h4>
-            <p class="user-info">TopGamerBear</p>
+            <p class="user-info"> <span> {{ current_user.user_name }} </span> </p>
 
             <h4>Name:</h4>
-            <p class="user-info">John Doe</p>
+            <p class="user-info"> {{ current_user.first_name + ' ' + current_user.last_name }} </p>
 
             <h4>Email:</h4>
-            <p class="user-info">topgamerbear@gmail.com</p>
+            <p class="user-info"> {{ current_user.emailid }}</p>
 
             <h4>Phone number:</h4>
-            <p class="user-info">0400-000-000</p>
+            <p class="user-info"> {{ current_user.phone_number }} </p>
             
             <h4> Addresss: </h4>
+            <p class="user-info"> {{ current_user.address }} </p>
             
 
         </section>
