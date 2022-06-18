@@ -48,23 +48,24 @@ def userHistory():
 def register():
     register = RegisterForm()
     if (register.validate_on_submit() == True):
-                user_Name = register.user_Name.data
-                pwd = register.password.data
-                email=register.email_id.data
-                Phone_Number=register.Phone_Number.data
-                Address=register.Address.data
-                u1 = User.query.filter_by(name = user_Name).first()
-                if u1:
-                    flash('User name already exists')
-                    return redirect(url_for('main.login'))
-                pwd_hash = generate_password_hash(pwd)
-                new_user = User(name = user_Name, password_hash=pwd_hash, emailid=email, phone_number=Phone_Number, address = Address)
-                db.session.add(new_user)
-                db.session.commit()
+            user_name = register.user_Name.data
+            first_name = register.first_name.data
+            last_name = register.last_name.data
+            pwd = register.password.data
+            email=register.email_id.data
+            Phone_Number=register.Phone_Number.data
+            Address=register.Address.data
+            u1 = User.query.filter_by(user_name = user_name).first()
+            if u1:
+                flash('User name already exists')
                 return redirect(url_for('main.login'))
+            pwd_hash = generate_password_hash(pwd)
+            new_user = User(user_name = user_name, first_name = first_name, last_name = last_name, password_hash=pwd_hash, emailid=email, phone_number=Phone_Number, address = Address)
+            db.session.add(new_user)
+            db.session.commit()
+            return redirect(url_for('main.login'))
     else:
         return render_template('user.html', form=register, heading='Register')
-
 #Login
 @mainbp.route('/login', methods=['GET','POST'])
 def login():
