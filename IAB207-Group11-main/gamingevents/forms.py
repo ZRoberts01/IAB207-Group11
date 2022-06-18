@@ -3,21 +3,19 @@ from wtforms.fields import TextAreaField, SubmitField, StringField, PasswordFiel
 from wtforms.validators import InputRequired, Length, Email, EqualTo
 from flask_wtf.file import FileRequired, FileField, FileAllowed
 
-ALLOWED_FILE = {'jpg', 'jpeg', 'PNG', 'png', 'JPG'}
+ALLOWED_FILE = {'jpg', 'PNG', 'png', 'JPG'}
 
 #Create Event Form
 class EventForm(FlaskForm):
     eventName = StringField('Event Name', validators=[InputRequired()])
     description = TextAreaField('Event Description', validators=[InputRequired()])
     image = FileField('Event Banner', validators= [FileRequired(message= 'Please add file'), 
-                                                    FileAllowed(ALLOWED_FILE, message= 'Only supports, jpg, jpeg, PNG, png, JPG')])
+                                                    FileAllowed(ALLOWED_FILE, message= 'Only supports, jpg, PNG, png, JPG')])
     category = StringField('Event Category', validators=[InputRequired()])
-    location = StringField('Event Address', validators=[InputRequired()])
-    creatorName = StringField('Company/Creator Name', validators=[InputRequired()])
-    email = StringField('Email Address', validators=[InputRequired()])
     date = DateField('Event Date', validators=[InputRequired()])
     time = TimeField('Event Time', validators=[InputRequired()])
-    ticketlimit = IntegerField('Booking Limit', validators=[InputRequired("Please use numbers only")])
+    location = StringField('Event Address', validators=[InputRequired()])
+    num_tickets = IntegerField('Booking Limit', validators=[InputRequired("Please use numbers only")])
     price = StringField('Ticket Price', validators=[InputRequired()])
     t_d = BooleanField('I accept all terms and conditions', validators=[InputRequired()])
     submit = SubmitField('Create Event')
@@ -26,9 +24,6 @@ class EventForm(FlaskForm):
 class CommentsForm(FlaskForm):
     text = TextAreaField('Comment', [InputRequired()])
     submit = SubmitField('Post')
-
-
-
 
 #Login Form
 class LoginForm(FlaskForm):
