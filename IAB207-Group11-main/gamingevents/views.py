@@ -27,12 +27,17 @@ def category():
     events=Event.query.all()
     return render_template('category.html', events=events)
 
-
 #Event Details
-@mainbp.route('/details')
-def eventDetails():
-    cform = CommentsForm()
-    return render_template('eventDetails.html', form=cform)
+@mainbp.route('/details', methods = ['GET', 'POST'])
+def Details():
+    form = CommentsForm()
+    if form.validate_on_submit():
+            text = form.text.data
+            new_comment = Comment(text = text)
+            db.session.add(new_comment)
+            db.session.commit()
+            print("Comment Submitted")
+    return render_template('eventDetails.html', form=form)
 
 
 #Comment
