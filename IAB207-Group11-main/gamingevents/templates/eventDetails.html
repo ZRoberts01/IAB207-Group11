@@ -4,32 +4,33 @@
 <main>
     <section>
         <!-- Image is sourced from Bungie Destiny 2 game galley images. https://www.bungie.net/7/en/destiny/newlight (2022) -->
-        <img class="details-page" src="../static/img/destiny2raid.png" alt="Destiny 2 Raid Image">
+        <img class="details-page" src="../static/img/destiny2photo.jpg" alt="Destiny 2 Raid Image">
         <div class="detailstxt">
             <h2>
-                Destiny 2 Raid Party
+                Destiny Raids
             </h2>
             <h4> Event Status:</h4>
             <p class="status-active">
-                <i>Available, only 2 left</i>
+                <i>Available</i>
             </p>
             <h4> Event Details: </h4>
+
             <p class="details">
-                Looking for four/five people to help us complete a Destiny 2 Raid. The event is free, we just want
-                more numbers to help complete the raid, make sure you have plenty of free time to complete the raid.
+                Please join me for some raids, I really need some friends to help. It will be a fun time I promise.
             </p>
+
             <h4> Date and Time: </h4>
             <p class="details">
-                14/5/2022 <br>
-                4:00pm AEST
+                28/6/2022 <br>
+                12:pm AEST
             </p>
     
             <p class="details">
-                <i><b>Organised by</b> WitcherHunter24</i>
+                <i><b>Organised by</b> {{ current_user.user_name }}</i>
             </p>
         </div>
     </section>
-
+    
     <section class="modal-event">
         <button type="button" class="btn btn-info btn-primary" data-toggle="modal"
             data-target="#eventModal">Tickets</button>
