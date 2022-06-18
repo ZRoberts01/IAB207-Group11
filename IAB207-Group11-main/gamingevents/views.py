@@ -74,15 +74,12 @@ def login():
             #get the username and password from the database
             user_name = login_form.user_name.data
             password = login_form.password.data
-            u1 = User.query.filter_by(name=user_name).first()
-            #if there is no user with that name
+            u1 = User.query.filter_by(user_name=user_name).first()
             if u1 is None:
                 error='Incorrect user name'
-            #check the password - notice password hash function
-            elif not check_password_hash(u1.password_hash, password): # takes the hash and password
+            elif not check_password_hash(u1.password_hash, password):
                 error='Incorrect password'
             if error is None:
-                #all good, set the login_user of flask_login to manage the user
                 login_user(u1)
                 return redirect(url_for('main.index'))
             else:
