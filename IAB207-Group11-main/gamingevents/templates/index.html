@@ -12,52 +12,45 @@
   </section>
 
   <section>
-    <div class="container">
-      <div class="row">
+    {% for event in events %}
+        {% if event['id'] == 1 %}
+          <section class="destiny-games">
+                
+              <div class="col-sm">
 
-        <div class="col-sm">
+                    <h4> {{event.eventName}} </h4>
+                    <p class="p">{{event.description}}</p>
+                    <p class="p"> Date: {{event.date}} </p>
+                    <p class="p"> Location: {{event.location}}</p>
+                    <img class="cat-photo" src="{{event.image}}" alt="Game Banner">
+                    
+              </div>
 
-          <h3>Destiny 2 Raid Party</h3>
-          <p class="status-active">
-            <i>Available, only 2 left</i>
-          </p>
+              <a class="btn btn-primary" href="{{ url_for('main.eventDetails') }}" role="button"> Details </a>
 
-          <p>
-            Looking for raid party members to join our raid and have fun!
-          </p>
-          <p>
-            <b>Date:</b> <br>
-            14/5/2022 <br>
-            <b>Time:</b> <br>
-            4:00pm AEST
-          </p>
-          <!-- Image is sourced from Bungie Destiny 2 game galley images. https://www.bungie.net/7/en/destiny/newlight (2022) -->
-          <img class="home-img" src="../static/img/destiny2raid.png" alt="Destiny 2 Website Image">
+          </section>
+        {% endif %}
+    {% endfor %}
 
-          <a class="btn btn-primary" href="{{ url_for('main.eventDetails') }}" role="button"> Details </a>
-        </div>
+    {% for event in events %}
+        {% if event['id'] == 5 %}
+        <section class="destiny-games">
+                
+                <div class="col-sm">
 
-        <div class="col-sm">
-          <h3>League Of Legends Competition</h3>
-          <p class="status-booked">
-            <i>Booked</i>
-          </p>
-          <p>
-            Looking for competitors or teams to join in a LOL Epsorts competition
-          </p>
-          <p>
-            <b>Date:</b> <br>
-            20/6/2022 <br>
-            <b>Time:</b> <br>
-            6:00pm AEST
-          </p>
-          <!-- Image is soruced from https://www.leagueoflegends.com/en-au/news/game-updates/patch-12-5-notes/  -->
-          <img class="home-img" src="../static/img/lol.jpg" alt="League of Legends Website Image">
-          <a class="btn btn-primary" href="ahsdgkjashdkas" role="button">Details</a>
-        </div>
+                    <h4> {{event.eventName}} </h4>
+                    <p class="p">{{event.description}}</p>
+                    <p class="p"> Date: {{event.date}} </p>
+                    <p class="p"> Location: {{event.location}}</p>
+                    <img class="cat-photo" src="{{event.image}}" alt="Game Banner">
+                    
+                </div>
 
-      </div>
-    </div>
+                <a class="btn btn-primary" href="{{ url_for('main.eventDetails') }}" role="button"> Details </a>
+
+        </section>
+        {% endif %}
+    {% endfor %}
   </section>
 
   <section>
