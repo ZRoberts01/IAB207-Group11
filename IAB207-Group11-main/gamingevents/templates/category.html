@@ -10,24 +10,49 @@
             </h2>
         </section>
         
-        <h4> All Games </h4>
+        <h4> Destiny 2 </h4>
         {% for event in events %}
-        <section class="destiny-games">
-            
-            <div class="col-sm">
-
-                <h4> {{event.eventName}} </h4>
-                <p class="p">{{event.description}}</p>
-                <p class="p"> Date: {{event.date}} </p>
-                <p class="p"> Location: {{event.location}}</p>
-                <img class="cat-photo" src="{{event.image}}" alt="Game Banner">
+            {% if event['category'] == 'Destiny 2' %}
+            <section class="destiny-games">
                 
-            </div>
+                <div class="col-sm">
 
-            <a class="btn btn-primary" href="{{ url_for('main.eventDetails') }}" role="button"> Details </a>
+                    <h4> {{event.eventName}} </h4>
+                    <p class="p">{{event.description}}</p>
+                    <p class="p"> Date: {{event.date}} </p>
+                    <p class="p"> Location: {{event.location}}</p>
+                    <img class="cat-photo" src="{{event.image}}" alt="Game Banner">
+                    
+                </div>
 
-        </section>
+                <a class="btn btn-primary" href="{{ url_for('main.eventDetails') }}" role="button"> Details </a>
+
+            </section>
+            {% endif %}
         {% endfor %}
+
+        <h4> League of Legends </h4>
+        {% for event in events %}
+            {% if event['category'] == 'League of Legends' %}
+            <section class="destiny-games">
+                
+                <div class="col-sm">
+
+                    <h4> {{event.eventName}} </h4>
+                    <p class="p">{{event.description}}</p>
+                    <p class="p"> Date: {{event.date}} </p>
+                    <p class="p"> Location: {{event.location}}</p>
+                    <img class="cat-photo" src="{{event.image}}" alt="Game Banner">
+                    
+                </div>
+
+                <a class="btn btn-primary" href="{{ url_for('main.eventDetails') }}" role="button"> Details </a>
+
+            </section>
+            {% endif %}
+        {% endfor %}
+
+        
 
 
         <section>
