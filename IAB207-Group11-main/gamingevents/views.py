@@ -29,10 +29,9 @@ def category():
 
 #Event Details
 @mainbp.route('/details')
-def eventDetails(id):
-    event = Event.query.filter_by(id=id).first()
+def eventDetails():
     cform = CommentsForm()
-    return render_template('eventDetails.html', event=event, form=cform)
+    return render_template('eventDetails.html', form=cform)
 
 
 #Comment
