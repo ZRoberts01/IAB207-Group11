@@ -24,7 +24,8 @@ def index():
 #Categories Page
 @mainbp.route('/categories')
 def category():
-    return render_template('category.html')
+    events=Event.query.all()
+    return render_template('category.html', events=events)
 
 
 #Event Details
