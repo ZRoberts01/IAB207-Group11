@@ -3,62 +3,33 @@
 {% block content %}
     <!-- Main -->
     <main>
-        {
+        
         <section>
             <h2>
                 Browse the different game categories below
             </h2>
         </section>
+        
+        <h4> All Games </h4>
         {% for event in events %}
         <section class="destiny-games">
-            <h4>{{event.category.Destiny_2}} </h4>
-            <div class="col-sm 1">
-                    <h4>{{event.eventName}}</h4>
-                    <p class="p">{{event.description}}</p>
-                    <img src="{{event.image}}" alt="Game Banner">
+            
+            <div class="col-sm">
+
+                <h4> {{event.eventName}} </h4>
+                <p class="p">{{event.description}}</p>
+                <p class="p"> Date: {{event.date}} </p>
+                <p class="p"> Location: {{event.location}}</p>
+                <img class="cat-photo" src="{{event.image}}" alt="Game Banner">
+                
             </div>
+
+            <a class="btn btn-primary" href="{{ url_for('main.eventDetails') }}" role="button"> Details </a>
 
         </section>
         {% endfor %}
-        {% for event in events %}
-        <section class="lol-games">
-                <h4>{{event.category.League_of_Legends}} </h4>
-                <div class="col-sm">
-                    
-                    <h4>{{event.eventName}}</h4>
-                    <p class="p">{{event.description}}</p>
-                    <img src="{{event.image}}" alt="Game Banner">
-                </div>
-               
-        </section>
-    {% endfor %} 
 
 
-        {% for event in events %}
-        <section class="other-games">
-            {{event.category}}
-            <div class="col-sm">
-                <h4>{{event.eventName}}</h4>
-                    <p class="p">{{event.description}}</p>
-                    <img src="{{event.image}}" alt="Game Banner">
-            </div>
-        
-        
-        </section>
-    {% endfor %} 
-
-        {% for event in events %}
-
-        <section class="all-games">
-            <div class="col-sm">
-                <h4>{{event.eventName}}</h4>
-                    <p class="p">{{event.description}}</p>
-                    <img src="{{event.image}}" alt="Game Banner">
-            </div>
-        
-
-        </section>
-{% endfor %} 
         <section>
             <p class="end-page">
                 End of events categories list... Come back later for more or <a href="eventCreation.html">upload your own</a>
