@@ -48,3 +48,7 @@ class RegisterForm(FlaskForm):
     #Submit Details
     submit = SubmitField("Register")
 
+#Booking
+class BookingForm(FlaskForm):
+    tick_num = IntegerField("Tickets Amount", validators={InputRequired()})
+    pay_opt = RadioField("Visa or Mastercard?", choices=["Visa", "Mastercard"], validate_choice={InputRequired()})
